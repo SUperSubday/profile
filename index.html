@@ -1,398 +1,801 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SUNSHINE NEPAL</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahitya Bhattarai - Dynamic Web Developer Portfolio</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Official portfolio of Sahitya Bhattarai, a passionate web developer specializing in creating dynamic and responsive websites using HTML, CSS, JavaScript, Python, C, and C#. Showcasing projects like Sahitya Sangraha, Nepali Cricket Website, and an Interactive Story.">
+    <meta name="keywords" content="Sahitya Bhattarai, web developer, portfolio, front-end development, HTML5, CSS3, JavaScript, Python developer, C programming, C# developer, web design, responsive design, SEO optimization, Sahitya Sangraha, Nepali Cricket Website, Interactive Story, custom websites, professional portfolio">
+    <meta name="author" content="Sahitya Bhattarai">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com/sahitya-bhattarai-portfolio">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Sahitya Bhattarai - Web Developer Portfolio">
+    <meta property="og:description" content="Explore the professional web development portfolio of Sahitya Bhattarai, featuring projects in modern web technologies.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/sahitya-bhattarai-portfolio">
+    <meta property="og:image" content="https://placehold.co/1200x630/2196F3/FFFFFF?text=Sahitya+Bhattarai+Portfolio">
+    <meta property="og:image:alt" content="Sahitya Bhattarai Portfolio Preview">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sahitya Bhattarai - Web Developer Portfolio">
+    <meta name="twitter:description" content="Explore the professional web development portfolio of Sahitya Bhattarai, featuring projects in modern web technologies.">
+    <meta name="twitter:image" content="https://placehold.co/1200x675/2196F3/FFFFFF?text=Sahitya+Bhattarai+Portfolio">
+    <meta name="twitter:creator" content="@YourTwitterHandle">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            color: #333;
-        }
-
+        /* General body styling and subtle animated background pattern */
         body {
-            background-color: #8A2BE2;
-            background-image: url('https://placehold.co/1920x1080/8A2BE2/FFFFFF?text=PHOTO+HERE');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+            font-family: 'Inter', sans-serif;
+            background-color: #ECEFF1; /* Very light blue-gray */
+            color: #263238; /* Very dark gray-blue */
+            overflow-x: hidden;
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 100L100 0H0V100ZM100 100V0H0L100 100Z" fill="%23CFD8DC" opacity="0.4" /></svg>'); /* Light geometric pattern */
+            background-size: 250px 250px;
+            animation: background-move 180s linear infinite; /* Very slow background movement */
+        }
+        @keyframes background-move {
+            0% { background-position: 0 0; }
+            100% { background-position: 2500px 2500px; }
+        }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #CFD8DC; /* Light gray-blue track */
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #2196F3, #1F78B4); /* Primary Blue to darker blue gradient */
+            border-radius: 8px;
+            border: 3px solid #CFD8DC;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #1976D2, #1669A8); /* Darker gradient on hover */
+        }
+
+        /* Card-like sections styling and subtle animation */
+        .card-section {
+            @apply bg-white rounded-3xl shadow-lg p-12 mb-24 mx-auto max-w-7xl;
+            border: 2px solid rgba(33, 150, 243, 0.2); /* Subtle blue border */
+            transition: all 0.6s cubic-bezier(0.2, 0.8, 0.4, 1); /* Smooth hover transition */
             position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 3px rgba(0, 0, 0, 0.05); /* Deeper, softer shadow */
         }
-
-        .logo-area {
+        .card-section:hover {
+            box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(0, 0, 0, 0.08);
+            transform: translateY(-8px); /* Gentle lift on hover */
+        }
+        /* Card section subtle parallax background */
+        .card-section::before {
+            content: '';
             position: absolute;
-            top: 15px;
-            left: 15px;
-            z-index: 1001;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 8px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
-        }
-
-        .logo-area:hover {
-            transform: translateY(-2px);
-        }
-
-        .logo-area img {
-            width: 100px;
-            height: auto;
-            border-radius: 5px;
-            display: block;
-        }
-
-        .navbar {
-            padding: 12px 15px;
-            display: flex;
-            justify-content: flex-end;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-            margin-bottom: 15px;
-            padding-left: 140px;
-        }
-
-        .navbar a {
-            margin: 0 12px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            padding: 4px 0;
-            transition: color 0.3s ease, text-decoration 0.3s ease;
-        }
-
-        .navbar a:hover {
-            color: #FFD700;
-            text-decoration: underline;
-        }
-
-        .box {
-            width: 90%;
-            max-width: 700px;
-            margin: 15px auto;
-            padding: 18px;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .box h1 {
-            color: #4B0082;
-            font-size: 2.2em;
-            margin-bottom: 8px;
-            text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
-        }
-
-        hr {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-            margin: 15px 0;
-        }
-
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            padding: 15px;
-            flex-grow: 1;
-        }
-
-        .contentLeft {
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-            transition: transform 0.3s ease;
-        }
-
-        .contentLeft:hover {
-            transform: translateY(-3px);
-        }
-
-        .contentLeft h2 {
-            color: #FF4500;
-            font-size: 1.6em;
-            margin-bottom: 12px;
-        }
-
-        .contentLeft p {
-            color: #DA70D6;
-            line-height: 1.5;
-            font-size: 1em;
-        }
-
-        .main-info-section {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 25px;
-            margin: 20px auto;
-            max-width: 90%;
-            border-radius: 12px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 30px;
-        }
-
-        .main-info-section .info-block {
-            flex: 1;
-            min-width: 250px;
-            max-width: 30%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .main-info-section .info-block h2,
-        .main-info-section .info-block h3 {
-            color: #4B0082;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-
-        .main-info-section .info-block h3 {
-            font-size: 1.2em;
-            color: #FFD700;
-            margin-bottom: 15px;
-        }
-
-        .main-info-section .info-block p {
-            font-size: 0.95em;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .main-info-section iframe {
-            width: 100%;
-            max-width: 300px;
-            height: 160px;
-            border: 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .social-icons-body {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .social-icons-body a img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .social-icons-body a img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .footer {
-            background-color: #20B2AA;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-            margin-top: auto;
-            position: sticky;
-            bottom: 0;
+            top: 0;
             left: 0;
-            z-index: 1000;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="%23B0BEC5" opacity="0.15" /></svg>'); /* Larger, lighter dots */
+            background-size: 30px 30px;
+            animation: move-dots-slow 90s linear infinite; /* Slower animation */
+            opacity: 0.4;
+            z-index: 0;
+            pointer-events: none;
+        }
+        @keyframes move-dots-slow {
+            0% { background-position: 0 0; }
+            100% { background-position: -300px -300px; }
+        }
+
+        /* Fade-in effect for sections on scroll (2D) */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(60px); /* Start lower */
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out; /* Smooth slide-up */
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section Background Animation (2D) */
+        @keyframes hero-wave-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero-background {
+            background: linear-gradient(135deg, #6DD5ED, #2196F3, #1F78B4, #4A90E2); /* Blue palette */
+            background-size: 400% 400%;
+            animation: hero-wave-gradient 25s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate; /* Smooth, gentle wave */
+            position: relative;
+            overflow: hidden;
             color: #FFFFFF;
         }
+        /* Hero Image Hover Animation (2D) */
+        .hero-photo-2d {
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.4, 1.2), box-shadow 0.6s ease-in-out;
+            border: 8px solid #2196F3; /* Primary blue border */
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            outline: 3px solid #1F78B4; /* Secondary blue outline */
+            outline-offset: 6px;
+        }
+        .hero-photo-2d:hover {
+            transform: scale(1.1) translateY(-10px); /* Larger scale and lift */
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+        }
+        /* Continuous subtle pulse for hero image */
+        @keyframes pulse-float {
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.02); }
+            100% { transform: translateY(0) scale(1); }
+        }
+        .hero-photo-2d {
+            animation: pulse-float 4s infinite ease-in-out alternate;
+        }
 
-        .copyright {
+        /* Skill card animations and styling (2D) */
+        .skill-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 2.5rem;
+            border-radius: 2rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.6s ease-in-out;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(0, 0, 0, 0.08);
+            color: #263238;
+            background-position: center;
+            background-size: cover;
+        }
+        .skill-card:hover {
+            transform: translateY(-15px) scale(1.08); /* Stronger lift and scale */
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+        /* Skill icon pop effect on hover */
+        .skill-card img {
+            transition: transform 0.4s ease-out;
+        }
+        .skill-card:hover img {
+            transform: scale(1.15);
+        }
+        /* Inner glow effect on skill card hover */
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(33, 150, 243, 0.2) 0%, transparent 70%); /* Blue glow */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            z-index: -1;
+        }
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .core-skill-card {
+            background-image: linear-gradient(135deg, #BBDEFB, #90CAF9); /* Lighter Blue Gradient */
+        }
+        .rookie-skill-card {
+            background-image: linear-gradient(135deg, #E0F2F7, #B2EBF2); /* Light Cyan Gradient */
+        }
+
+        /* Project card animations and styling (2D) */
+        .project-card {
+            @apply bg-white rounded-3xl shadow-lg overflow-hidden;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.6s ease-in-out;
+            cursor: pointer;
+            border: 2px solid rgba(0, 0, 0, 0.08);
+        }
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.05); /* Pronounced lift and scale */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        .project-card img {
+            transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.4, 1); /* Smooth zoom */
+        }
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Button hover effects (Updated) */
+        .btn-primary {
+            @apply bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold py-4.5 px-16 rounded-full shadow-lg transition-all duration-300 ease-in-out;
+            position: relative;
+            overflow: hidden;
+            font-size: 1.45rem;
+            letter-spacing: 0.12em;
+            border: 2px solid #2196F3;
+            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.5); /* Blue glow shadow */
+            transform: translateY(0); /* Reset for animation */
+        }
+        .btn-primary:hover {
+            background-position: 100% 0; /* Shift gradient */
+            transform: translateY(-3px); /* Slight lift */
+            box-shadow: 0 15px 30px rgba(33, 150, 243, 0.7); /* Enhanced shadow */
+        }
+        .btn-primary:active {
+            transform: translateY(1px) scale(0.98); /* Press down effect */
+            box-shadow: 0 5px 10px rgba(33, 150, 243, 0.8);
+            transition-duration: 0.1s; /* Quick press */
+        }
+
+        /* Input/Textarea focus effects */
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 8px rgba(33, 150, 243, 0.6); /* Stronger Blue glow */
+            border-color: #2196F3;
+            background-color: #E3F2FD;
+            color: #263238;
+        }
+        input, textarea {
+            background-color: #FDFEFE;
+            color: #263238;
+            border: 2px solid #CFD8DC;
+        }
+        input:hover, textarea:hover {
+            border-color: #90A4AE; /* Subtle hover border */
+            box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.15);
+        }
+
+        /* Social icons hover animation (2D) */
+        .social-icon {
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.4, 1.2), filter 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+            display: inline-block;
+            position: relative;
+        }
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.2); /* Stronger lift and scale */
+            filter: brightness(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        /* Icon specific colors for social SVGs */
+        .social-icon svg.text-blue-700 { color: #0A66C2; } /* LinkedIn official blue */
+        .social-icon svg.text-gray-800 { color: #212529; } /* GitHub dark gray */
+        .social-icon svg.text-blue-400 { color: #1DA1F2; } /* Twitter official blue */
+
+
+        /* Section headings styling and hover animation */
+        .section-heading {
+            background: linear-gradient(90deg, #2196F3, #1F78B4); /* Primary Blue to darker blue gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 4px 12px rgba(33, 150, 243, 0.2); /* Softer text shadow */
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+        }
+        .section-heading:hover {
+            letter-spacing: 0.12em;
+            text-shadow: 0 6px 18px rgba(33, 150, 243, 0.3);
+            transform: translateX(3px); /* Subtle slide on hover */
+        }
+
+        /* Navbar animation on scroll */
+        .header-scrolled {
+            background-color: rgba(255, 255, 255, 0.98); /* Near opaque white */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+            backdrop-filter: blur(8px); /* Stronger frosted glass effect */
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom-color: #B0BEC5;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        /* Navbar title and links color change on scroll */
+        .header-scrolled .navbar-brand-gradient {
+            background: linear-gradient(90deg, #1F78B4, #2196F3); /* Darker blue to Primary Blue gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        .header-scrolled .navbar-link {
+            color: #455A64; /* Darker gray-blue for links on scroll */
+        }
+        .header-scrolled ul li a::after { /* Ensure underline disappears on scroll */
+            transform: scaleX(0);
+        }
+
+        /* Nav link hover underline animation */
+        .navbar-link {
+            position: relative;
+            display: inline-block;
+            color: #455A64; /* Darker grey-blue for static nav links */
+            transition: color 0.3s ease-in-out;
+        }
+        .navbar-link::after {
+            content: '';
+            position: absolute;
             width: 100%;
-            text-align: center;
-            font-size: 0.85em;
-            color: rgba(255, 255, 255, 0.8);
-            margin: 0;
-            padding: 0;
-            border-top: none;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #2196F3, #1F78B4); /* Primary Blue to darker blue gradient */
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .navbar-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
 
-        @media (max-width: 768px) {
-            .logo-area {
-                position: static;
-                text-align: center;
-                margin-bottom: 10px;
-                padding: 5px;
-                box-shadow: none;
-            }
-
-            .logo-area img {
-                width: 90px;
-            }
-
-            .navbar {
-                justify-content: center;
-                flex-wrap: wrap;
-                padding-left: 15px;
-            }
-
-            .navbar a {
-                margin: 5px 8px;
-            }
-
-            .hero {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contentLeft {
-                max-width: 90%;
-            }
-
-            .main-info-section {
-                padding: 20px 15px;
-                margin: 15px auto;
-                flex-direction: column;
-                gap: 25px;
-            }
-
-            .main-info-section .info-block {
-                width: 90%;
-                max-width: none;
-                min-width: unset;
-                align-items: center;
-            }
-
-            .main-info-section .info-block h2,
-            .main-info-section .info-block h3 {
-                text-align: center;
-                width: auto;
-            }
-
-            .main-info-section iframe {
-                max-width: 90%;
-                height: 120px;
-            }
-
-            .social-icons-body {
-                gap: 15px;
-            }
-
-            .social-icons-body a img {
-                width: 40px;
-                height: 40px;
-            }
-
-            .footer {
-                padding: 10px 15px;
-            }
-
-            .copyright {
-                margin-top: 0;
-                padding-top: 0;
-            }
+        /* Subtle pulsating heart in footer */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .animate-heartbeat {
+            animation: heartbeat 1.5s infinite;
         }
 
-        @media (max-width: 480px) {
-            .box h1 {
-                font-size: 1.6em;
-            }
-
-            .contentLeft h2 {
-                font-size: 1.3em;
-            }
-
-            .contentLeft p {
-                font-size: 0.9em;
-            }
+        /* Scroll to Top Button */
+        #scroll-to-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #2196F3, #1F78B4); /* Blue gradient */
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            line-height: 1;
+            box-shadow: 0 8px 15px rgba(33, 150, 243, 0.4);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out, background 0.3s ease-in-out;
+            z-index: 1000;
         }
+        #scroll-to-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        #scroll-to-top-btn:hover {
+            background: linear-gradient(45deg, #1F78B4, #2196F3); /* Reverse gradient on hover */
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(33, 150, 243, 0.6);
+        }
+        #scroll-to-top-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 4px 8px rgba(33, 150, 243, 0.8);
+        }
+
+        /* Reading Progress Indicator */
+        #reading-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 6px; /* Thicker bar */
+            background: linear-gradient(90deg, #2196F3, #1F78B4); /* Blue gradient */
+            z-index: 1001;
+            transition: width 0.1s linear; /* Smooth fill */
+        }
+
     </style>
 </head>
-<body>
-    <div class="logo-area">
-        <img src="https://placehold.co/100x50/FFFFFF/000000?text=LOGOHERE" alt="Sunshine Nepal Logo">
+<body class="antialiased">
+
+    <!-- Reading Progress Indicator -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Header & Navigation -->
+    <header id="main-header" class="bg-white shadow-xl py-5 fixed top-0 left-0 w-full z-50 border-b-2 border-gray-200">
+        <nav class="container mx-auto flex justify-between items-center px-8">
+            <a href="#" class="text-3xl font-bold text-emerald-600 hover:text-emerald-700 transition duration-300 ease-in-out tracking-wider navbar-brand-gradient">Sahitya Bhattarai</a>
+            <ul class="hidden md:flex space-x-10">
+                <li><a href="#about" class="text-gray-700 hover:text-emerald-600 transition duration-300 ease-in-out text-lg font-semibold navbar-link">About</a></li>
+                <li><a href="#skills" class="text-gray-700 hover:text-emerald-600 transition duration-300 ease-in-out text-lg font-semibold navbar-link">Skills</a></li>
+                <li><a href="#projects" class="text-gray-700 hover:text-emerald-600 transition duration-300 ease-in-out text-lg font-semibold navbar-link">Projects</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-emerald-600 transition duration-300 ease-in-out text-lg font-semibold navbar-link">Contact</a></li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-white bg-opacity-95 z-40 hidden md:hidden">
+        <div class="flex justify-end p-8">
+            <button id="close-mobile-menu" class="text-gray-700 focus:outline-none">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-col items-center space-y-10 text-3xl mt-16">
+            <li><a href="#about" class="text-gray-700 hover:text-emerald-600 transition duration-300 ease-in-out" onclick="hideMobileMenu()">About</a></li>
+            <li><a href="#skills" class="text-gray-700 hover:text-emerald-600 transition duration-300 ease-in-out" onclick="hideMobileMenu()">Skills</a></li>
+            <li><a href="#projects" class="text-gray-700 hover:text-emerald-600 transition duration-300 ease-in-out" onclick="hideMobileMenu()">Projects</a></li>
+            <li><a href="#contact" class="text-gray-700 hover:text-emerald-600 transition duration-300 ease-in-out" onclick="hideMobileMenu()">Contact</a></li>
+        </ul>
     </div>
 
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="About Us.html">About Us</a>
-        <a href="Donate.html">Donate</a>
-        <a href="Sign in form.html">Contact"></a>
-    </div>
+    <main class="pt-32">
 
-    <div class="box">
-        <h1>SUNSHINE NEPAL</h1>
-        <hr>
-    </div>
-
-    <div class="hero">
-        <div class="contentLeft">
-            <h2>Welcome to Charity</h2>
-            <p>We work to help poor and needy people by Showing Love and kindness through generous actions. This includes:</p>
-        </div>
-    </div>
-
-    <section class="main-info-section">
-        <div class="info-block">
-            <h3>Our Location</h3>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114227.1856345995!2d85.90807567784088!3d26.71966115982073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ec407f353a80f7%3A0x1d3a5e84f509e5b9!2sJanakpur%2C%20Nepal!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-
-        <div class="info-block">
-            <h3>Why Donate?</h3>
-            <p>Your generous contributions directly fund our initiatives to provide food, shelter, education, and healthcare to those in need. Every donation, no matter how small, makes a significant impact on improving lives and building a brighter future for communities in Nepal. Join us in making a difference!</p>
-        </div>
-
-        <div class="info-block">
-            <h3>Contact Us</h3>
-            <p>123 Charity Lane, Janakpur, Nepal</p>
-            <p>Email: info@sunshinenepal.org</p>
-            <p>Phone: +977 987 654 3210</p>
-        </div>
-
-        <div class="info-block">
-            <h2>Connect With Us!</h2>
-            <div class="social-icons-body">
-                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                    <img src="https://placehold.co/50x50/1877F2/FFFFFF?text=FB" alt="Facebook Icon" onerror="this.onerror=null;this.src='https://placehold.co/50x50/1877F2/FFFFFF?text=FB';">
-                </a>
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                    <img src="https://placehold.co/50x50/0A66C2/FFFFFF?text=LI" alt="LinkedIn Icon" onerror="this.onerror=null;this.src='https://placehold.co/50x50/0A66C2/FFFFFF?text=LI';">
-                </a>
-                <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer">
-                    <img src="https://placehold.co/50x50/25D366/FFFFFF?text=WA" alt="WhatsApp Icon" onerror="this.onerror=null;this.src='https://placehold.co/50x50/25D366/FFFFFF?text=WA';">
-                </a>
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center text-center hero-background p-10 relative z-0">
+            <div>
+                <img src="C:\Users\bhatt\Desktop\protofolio\profile.jpg" alt="Sahitya Bhattarai Profile Photo" class="rounded-full w-64 h-64 mx-auto mb-10 shadow-lg transform hero-photo-2d">
+                <h1 class="text-7xl md:text-8xl font-extrabold mb-6 leading-tight drop-shadow-lg text-white">Hello, I'm <span class="text-white">Sahitya Bhattarai</span></h1>
+                <p class="text-2xl md:text-4xl mb-12 drop-shadow-md text-gray-100">A passionate Web Developer | Learner | Writer</p>
+                <a href="#projects" class="btn-primary"><span>Explore My Work</span></a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="footer">
-        <div class="copyright">
-            &copy; 2025 SUNSHINE NEPAL. All rights reserved.
-        </div>
+        <!-- About Me Section -->
+        <section id="about" class="card-section fade-in-section">
+            <h2 class="text-5xl md:text-6xl font-bold text-center mb-12 section-heading">About Me</h2>
+            <div class="md:flex md:items-center md:space-x-12">
+                <div class="md:w-1/3 mb-10 md:mb-0 transform hover:scale-105 transition duration-700 ease-in-out">
+                    <img src="C:\Users\bhatt\Desktop\protofolio\IMG_20240624_203936_291 - Copy.jpg" alt="About Sahitya Bhattarai" class="rounded-xl shadow-lg w-full border border-gray-300">
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-lg md:text-xl leading-relaxed mb-8 text-gray-700">
+                        Hello! I'm Sahitya Bhattarai, a dedicated web developer, I thrive on bringing creative visions to life through code,
+                         building engaging and responsive digital experiences. Beyond crafting compelling websites, I am a perpetual learner, 
+                         constantly exploring new technologies and methodologies to expand my skillset and tackle complex challenges. 
+                         This inherent curiosity fuels my passion not only for development but also for writing, 
+                         where I enjoy articulating technical concepts, sharing insights, and weaving narratives that connect with audiences.
+                    </p>
+                    <p class="text-lg md:text-xl leading-relaxed text-gray-700">
+                        I also enjoy writing articles , stories and poems as well . 
+                        I have been trying to combine my writing with my technology and web skills .
+                         Below I have included some of my work for you to watch out!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="card-section fade-in-section">
+            <h2 class="text-5xl md:text-6xl font-bold text-center mb-12 section-heading">My Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+                <!-- Core Skills -->
+                <div class="skill-card core-skill-card">
+                    <img src="https://placehold.co/60x60/2196F3/FFFFFF?text=HTML" alt="HTML5 Icon" class="w-16 h-16 mb-4">
+                    <p class="text-2xl font-semibold text-gray-800">HTML5</p>
+                </div>
+                <div class="skill-card core-skill-card">
+                    <img src="https://placehold.co/60x60/1F78B4/FFFFFF?text=CSS" alt="CSS3 Icon" class="w-16 h-16 mb-4">
+                    <p class="text-2xl font-semibold text-gray-800">CSS3</p>
+                </div>
+                <div class="skill-card core-skill-card">
+                    <img src="https://placehold.co/60x60/4A90E2/FFFFFF?text=JS" alt="JavaScript Icon" class="w-16 h-16 mb-4">
+                    <p class="text-2xl font-semibold text-gray-800">JavaScript</p>
+                </div>
+                <!-- Rookie Skills -->
+                <div class="skill-card rookie-skill-card">
+                    <img src="https://placehold.co/60x60/607D8B/FFFFFF?text=PY" alt="Python Icon" class="w-16 h-16 mb-4">
+                    <p class="text-2xl font-semibold text-gray-800">Python</p>
+                </div>
+                <div class="skill-card rookie-skill-card">
+                    <img src="https://placehold.co/60x60/424242/FFFFFF?text=C" alt="C Language Icon" class="w-16 h-16 mb-4">
+                    <p class="text-2xl font-semibold text-gray-800">C</p>
+                </div>
+                <div class="skill-card rookie-skill-card">
+                    <img src="https://placehold.co/60x60/263238/FFFFFF?text=C#" alt="C# Icon" class="w-16 h-16 mb-4">
+                    <p class="text-2xl font-semibold text-gray-800">C#</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="card-section fade-in-section">
+            <h2 class="text-5xl md:text-6xl font-bold text-center mb-12 section-heading">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Project 1: Sahitya Sangraha -->
+                <div class="project-card">
+                    <img src="c:\Users\bhatt\Desktop\protofolio\Green Watercolor Cover Book A4 Document_page-0001.jpg" alt="Sahitya Sangraha project preview" class="w-full h-64 object-cover object-center">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4">Sahitya Sangraha</h3>
+                        <p class="text-gray-700 text-lg mb-6 leading-relaxed">A digital representation of a literary anthology featuring a diverse collection of works,
+                             including original poems.</p>
+                        <div class="flex flex-wrap gap-4 mb-8">
+                            <span class="bg-blue-500 text-base font-semibold px-5 py-2 rounded-full shadow-md text-white">HTML</span> 
+                            <span class="bg-blue-700 text-base font-semibold px-5 py-2 rounded-full shadow-md text-white">CSS</span>
+                            <span class="bg-blue-400 text-base font-semibold px-5 py-2 rounded-full shadow-md text-white">JavaScript</span>
+                        </div>
+                        <a href="https://supersubday.github.io/Sahitya-Sangraha/" class="text-blue-600 hover:underline font-semibold text-xl flex items-center">
+                            View Project
+                            <svg class="w-6 h-6 ml-3 transform -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project 2: Nepali Cricket Website -->
+                <div class="project-card">
+                    <img src="C:\Users\bhatt\Desktop\protofolio\cricket.png" alt="Nepali Cricket Website project preview" class="w-full h-64 object-cover object-center">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4">Nepali Cricket Website</h3>
+                        <p class="text-gray-700 text-lg mb-6 leading-relaxed">A passionate fan-developed platform dedicated to Nepali cricket,offering few records and statistics as well as a brief history.</p>
+                        <div class="flex flex-wrap gap-4 mb-8">
+                            <span class="bg-green-500 text-base font-semibold px-5 py-2 rounded-full shadow-md text-white">HTML</span>
+                            <span class="bg-green-700 text-base font-semibold px-5 py-2 rounded-full shadow-md text-white">CSS</span>
+                            <span class="bg-green-400 text-base font-semibold px-5 py-2 rounded-full shadow-md text-white">JavaScript</span>
+                        </div>
+                        <a href=" https://supersubday.github.io/story/" class="text-blue-600 hover:underline font-semibold text-xl flex items-center">
+                            View Project
+                            <svg class="w-6 h-6 ml-3 transform -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project 3: Interactive Story -->
+                <div class="project-card">
+                    <img src="c:\Users\bhatt\Desktop\protofolio\story.png" alt="Interactive Story App project preview" class="w-full h-64 object-cover object-center">
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4"> Story</h3>
+                        <p class="text-gray-700 text-lg mb-6 leading-relaxed">A self written story content blended into web. This website displays my love for writing as well as web technology.</p>
+                        <div class="flex flex-wrap gap-4 mb-8">
+                            <span class="bg-yellow-500 text-base font-semibold px-5 py-2 rounded-full shadow-md text-white">HTML</span>
+                            <span class="bg-orange-500 text-base font-semibold px-5 py-2 rounded-full shadow-md text-white">CSS</span>
+                            <span class="bg-purple-500 text-base font-semibold px-5 py-2 rounded-full shadow-md text-white">JavaScript</span>
+                        </div>
+                        <a href="https://supersubday.github.io/story/" class="text-blue-600 hover:underline font-semibold text-xl flex items-center">
+                            View Project
+                            <svg class="w-6 h-6 ml-3 transform -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="card-section fade-in-section">
+            <h2 class="text-5xl md:text-6xl font-bold text-center mb-12 section-heading">Get In Touch</h2>
+            <p class="text-center text-xl md:text-2xl mb-10 text-gray-700"> I'm always open to new opportunities and collaborations!</p>
+            <form class="max-w-2xl mx-auto space-y-8">
+                <div>
+                    <label for="name" class="block text-gray-800 text-lg font-bold mb-3">Your Name</label>
+                    <input type="text" id="name" name="name" class="shadow-lg border rounded-xl w-full py-4 px-6 text-gray-800 leading-tight focus:outline-none focus:ring-4 focus:ring-blue-500 bg-gray-100 border-gray-300 transition duration-300" placeholder="Sahitya Bhattarai">
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-800 text-lg font-bold mb-3">Your Email</label>
+                    <input type="email" id="email" name="email" class="shadow-lg border rounded-xl w-full py-4 px-6 text-gray-800 leading-tight focus:outline-none focus:ring-4 focus:ring-blue-500 bg-gray-100 border-gray-300 transition duration-300" placeholder="your.email@example.com">
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-800 text-lg font-bold mb-3">Your Message</label>
+                    <textarea id="message" name="message" rows="10" class="shadow-lg border rounded-xl w-full py-4 px-6 text-gray-800 leading-tight focus:outline-none focus:ring-4 focus->ring-blue-500 bg-gray-100 border-gray-300 transition duration-300" placeholder="Tell me about your project or inquiry..."></textarea>
+                </div>
+                <div class="flex justify-center">
+                    <button type="submit" class="btn-primary"><span>Send Your Message</span></button>
+                </div>
+            </form>
+            <div class="mt-16 text-center">
+                <p class="text-gray-700 text-xl mb-8">Connect with me on social platforms:</p>
+                <div class="flex justify-center space-x-10 mt-4">
+                    <a href="https://www.linkedin.com/in/sahitya-bhattarai-a10879335/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn Profile">
+                        <svg class="w-14 h-14 text-blue-700 hover:text-blue-800 transition duration-300 transform scale-105" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM4 9H0v12h4zM2 6a2 2 0 110-4 2 2 0 010 4z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/SUperSubday" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub Profile">
+                        <svg class="w-14 h-14 text-gray-800 hover:text-gray-900 transition duration-300 transform scale-105" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.799 8.207 11.387.6.11.817-.26.817-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.043-1.61-4.043-1.61-.546-1.387-1.332-1.758-1.332-1.758-1.09-.745.08-.73.08-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.83 2.807 1.3 3.49.993.109-.775.419-1.3.762-1.6C6.128 17.765 3.03 16.512 3.03 11.24c0-1.3.465-2.36 1.236-3.21-.124-.3-.535-1.517.117-3.178 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.292-1.552 3.3-1.23 3.3-1.23.653 1.66.242 2.877.118 3.178.77.85 1.235 1.91 1.235 3.21 0 5.28-3.098 6.51-6.096 6.84.48.415.91 1.226.91 2.47 0 1.78-.015 3.22-.015 3.654 0 .318.21.69.825.577C20.562 21.799 24 17.302 24 12c0-6.627-5.373-12-12-12z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                  <a href="https://www.facebook.com/sahitya.bhattarai.49" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook Profile">
+                        <svg class="w-14 h-14 text-blue-fb hover:text-blue-700 transition duration-300 transform scale-105" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.04C6.51 2.04 2 6.54 2 12.04c0 5.07 3.68 9.29 8.5 9.96V14.1H7.55V12.04H10.5V9.45c0-2.92 1.77-4.52 4.39-4.52 1.24 0 2.31.22 2.31.22V8.1h-1.48c-1.46 0-1.92.91-1.92 1.83V12.04h3.29l-.52 2.06H14.5V22.04c4.82-.67 8.5-4.89 8.5-9.96 0-5.5-4.51-10-10-10z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top-btn" title="Go to top">
+        &uarr;
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-12 text-center text-gray-600 border-t-2 border-gray-200">
+        <p class="text-lg">&copy; 2025 Sahitya Bhattarai. All rights reserved.</p>
+        <p class="text-base mt-3">Crafted with <span class="text-red-500 text-xl animate-pulse animate-heartbeat">&hearts;</span> by Sahitya Bhattarai</p>
     </footer>
+
+    <script>
+        // JavaScript for mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+        function showMobileMenu() {
+            mobileMenuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        }
+
+        function hideMobileMenu() {
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        mobileMenuButton.addEventListener('click', showMobileMenu);
+        closeMobileMenuButton.addEventListener('click', hideMobileMenu);
+
+        // JavaScript for fade-in sections on scroll
+        const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.15 // 15% of the section must be visible for a smoother trigger
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        fadeInSections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navbar animation on scroll
+        const mainHeader = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) { // Adjust scroll threshold as needed
+                mainHeader.classList.add('header-scrolled');
+            } else {
+                mainHeader.classList.remove('header-scrolled');
+            }
+        });
+
+        // Simple form submission handler (for demonstration, no backend)
+        const contactForm = document.querySelector('#contact form');
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            // In a real application, you would send this data to a backend server.
+            console.log('Form submitted!');
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Simple validation and display of data (replace with actual fetch/XHR)
+            if (name && email && message) {
+                showAlert('Thank you for your message, Sahitya will get back to you shortly!');
+                console.log({ name, email, message });
+                contactForm.reset(); // Clear the form
+            } else {
+                showAlert('Please fill in all fields before sending your message.');
+            }
+        });
+
+        // Function to handle custom alert/modal instead of native alert()
+        function showAlert(message) {
+            const existingAlert = document.getElementById('custom-alert-modal');
+            if (existingAlert) existingAlert.remove(); // Remove any existing alerts
+
+            const alertModal = document.createElement('div');
+            alertModal.id = 'custom-alert-modal';
+            alertModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fade-in-alert';
+            alertModal.innerHTML = `
+                <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full text-center border-2 border-blue-500 transform scale-95 animate-zoom-in-alert text-gray-800">
+                    <p class="text-xl mb-6">${message}</p>
+                    <button id="alert-close-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-8 rounded-full focus:outline-none transition duration-300 transform hover:scale-105">
+                        Got It!
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(alertModal);
+
+            // Add animations for custom alert
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes fade-in-alert {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+                @keyframes zoom-in-alert {
+                    from { transform: scale(0.8); opacity: 0; }
+                    to { transform: scale(1); opacity: 1; }
+                }
+                .animate-fade-in-alert { animation: fade-in-alert 0.3s ease-out forwards; }
+                .animate-zoom-in-alert { animation: zoom-in-alert 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; }
+            `;
+            document.head.appendChild(style);
+
+
+            document.getElementById('alert-close-button').addEventListener('click', () => {
+                // Add fade-out animation before removal
+                alertModal.classList.remove('animate-fade-in-alert');
+                alertModal.classList.add('animate-fade-out-alert');
+                alertModal.querySelector('div').classList.remove('animate-zoom-in-alert');
+                alertModal.querySelector('div').classList.add('animate-zoom-out-alert');
+
+                // Define fade-out animations
+                const fadeOutStyle = document.createElement('style');
+                fadeOutStyle.innerHTML = `
+                    @keyframes fade-out-alert {
+                        from { opacity: 1; }
+                        to { opacity: 0; }
+                    }
+                    @keyframes zoom-out-alert {
+                        from { transform: scale(1); opacity: 1; }
+                        to { transform: scale(0.8); opacity: 0; }
+                    }
+                    .animate-fade-out-alert { animation: fade-out-alert 0.3s ease-in forwards; }
+                    .animate-zoom-out-alert { animation: zoom-out-alert 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) reverse forwards; }
+                `;
+                document.head.appendChild(fadeOutStyle);
+
+                alertModal.addEventListener('animationend', (event) => {
+                    if (event.animationName === 'fade-out-alert') {
+                        alertModal.remove();
+                        fadeOutStyle.remove(); // Clean up dynamic style
+                    }
+                });
+            });
+        }
+
+        // Override native alert for demonstration purposes (you'd normally use showAlert directly)
+        window.alert = showAlert;
+
+
+        // Scroll to Top Button functionality
+        const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after 300px scroll
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Reading Progress Indicator functionality
+        const progressBar = document.getElementById('reading-progress-bar');
+        window.addEventListener('scroll', () => {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPosition = window.scrollY;
+            const progress = (scrollPosition / totalHeight) * 100;
+            progressBar.style.width = `${progress}%`;
+        });
+
+    </script>
 </body>
 </html>
